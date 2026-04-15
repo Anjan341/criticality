@@ -38,21 +38,36 @@ annotate SalesService.SalesOrders with @(
 
     UI.FieldGroup #GeneralInfo : {
         Data : [
-            { $Type : 'UI.DataField', Value : SalesOrderID },
-            { $Type : 'UI.DataField', Value : CustomerName }
+            {
+            $Type : 'UI.DataField',
+            Value : SalesOrderID,
+            Label : 'Sales Order ID'
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : CustomerName,
+            Label : 'Customer Name'
+        }
         ]
     },
 
     UI.FieldGroup #AmountInfo : {
         Data : [
-            { $Type : 'UI.DataField', Value : TotalAmount },
-            { $Type : 'UI.DataField', Value : Currency }
+            { $Type : 'UI.DataField', 
+            Value : TotalAmount,
+            Label: 'TotalAmount'
+             },
+            { $Type : 'UI.DataField',
+             Value : Currency,
+             Label: 'Currency'
+              }
         ]
     },
 
     UI.FieldGroup #StatusInfo : {
         Data : [
             {
+                
                 $Type : 'UI.DataFieldForAnnotation',
                 Target : '@UI.DataPoint#StatusDP'
             }

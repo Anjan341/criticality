@@ -14,11 +14,11 @@ entity SalesOrderHeader : managed {
     Currency         : String(5);
     Status           : String(20);
 
-    // Criticality: 1=Red, 2=Green, 3=Yellow
+    // 1=Error (Red), 2=Warning (Orange), 3=Success (Green)
     Criticality      : Integer;
 
     Items : Composition of many SalesOrderItem
-            on Items.parent = $self;
+        on Items.SalesOrderID = SalesOrderID;
 }
 
 /**
@@ -27,7 +27,7 @@ entity SalesOrderHeader : managed {
 entity SalesOrderItem : managed {
     key ID           : UUID @default: uuid;
 
-    parent           : Association to SalesOrderHeader;
+    SalesOrderID     : String(10);
 
     ItemPosition     : Integer;
     ProductName      : String(100);
